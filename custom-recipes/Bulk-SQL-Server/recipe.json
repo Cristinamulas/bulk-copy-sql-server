@@ -2,19 +2,18 @@
 {
     // Meta data for display purposes
     "meta": {
-        // label: name of the recipe as displayed, should be short
+    
         "label": "Sql bulk copy",
-        // description: longer string to help end users understand what this recipe does
+        
         "description": "Supports the transfer of large amounts of data into or out of a SQL Server table",
-        // icon: must be one of the FontAwesome 3.2.1 icons, complete list here at https://fontawesome.com/v3.2.1/icons/
+
         "icon": "icon-puzzle-piece"
     },
 
     "kind": "PYTHON",
-    "impersonate" : false,
     "permissions" : ['ADMIN'],
    
-    "paramsPythonSetup": "custom_choices.py",
+  
     
 
     // Inputs and outputs are defined by roles. In the recipe's I/O tab, the user can associate one

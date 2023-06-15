@@ -1,0 +1,6 @@
+pandas
+numpy
+bcpy==0.1.8
+pyodbc
+urllib3==1.26.6 
+

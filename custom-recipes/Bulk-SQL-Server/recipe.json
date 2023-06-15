@@ -1,0 +1,90 @@
+// This file is the descriptor for the Custom code recipe sqlbulkcopy
+{
+    // Meta data for display purposes
+    "meta": {
+        // label: name of the recipe as displayed, should be short
+        "label": "Sql bulk copy",
+        // description: longer string to help end users understand what this recipe does
+        "description": "Supports the transfer of large amounts of data into or out of a SQL Server table",
+        // icon: must be one of the FontAwesome 3.2.1 icons, complete list here at https://fontawesome.com/v3.2.1/icons/
+        "icon": "icon-puzzle-piece"
+    },
+
+    "kind": "PYTHON",
+    "impersonate" : false,
+    "permissions" : ['ADMIN'],
+   
+    "paramsPythonSetup": "custom_choices.py",
+    
+
+    // Inputs and outputs are defined by roles. In the recipe's I/O tab, the user can associate one
+    // or more dataset to each input and output role.
+
+    // The "arity" field indicates whether the user can associate several datasets to the role ('NARY')
+    // or at most one ('UNARY'). The "required" field indicates whether the user is allowed to
+    // associate no dataset with the role.
+
+    "inputRoles": [
+        {
+            "name": "folder_name",
+            "label": "input A displayed name",
+            "description": "what input A means",
+            "arity": "NARY",
+            "required": true,
+            "acceptsDataset": false,
+            "acceptsManagedFolder": true
+        }
+       
+    ],
+
+    "outputRoles": [
+        {
+            "name": "database_output",
+            "label": "main output displayed name",
+            "description": "what main output means",
+            "arity": "NARY",
+            "required": false,
+            "acceptsDataset": true
+        }
+      
+    ],
+
+    /* The field "params" holds a list of all the params
+       for wich the user will be prompted for values in the Settings tab of the recipe.
+
+       The available parameter types include:
+       STRING, STRINGS, INT, DOUBLE, BOOLEAN, SELECT, MULTISELECT, MAP, TEXTAREA, PRESET, COLUMN, COLUMNS
+
+       For the full list and for more details, see the documentation: https://doc.dataiku.com/dss/latest/plugins/reference/params.html
+    */
+
+    "params": [
+        {
+            "name": "file_name",
+            "label": "The name of the file",
+            "type": "STRING",
+            "description": "File that is going to be copied",
+            "mandatory": true
+        },
+      
+        {
+            "name": "file_dataset",
+            "label": "Create a new dataset",
+            "type": "STRING",
+            "description": "Create a new dataset",
+            "mandatory": true
+        },
+        {
+            "name": "sql_connection",
+            "label": "Type of connections ",
+            "type": "STRING",
+            "description": "Select type of connection",
+            "mandatory": true
+        }
+         
+    ],
+
+   
+    "resourceKeys": []
+
+}

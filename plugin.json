@@ -1,0 +1,17 @@
+{
+    "id": "your-plugin-id",
+    "version": "0.1.0",
+    "meta": {
+        "label": "Plugin template - Replace by your plugin label",
+      
+        "description": "supports the transfer of large amounts of data into or out of a SQL Server table",
+        "author": "Cristina Mulas",
+        "icon": "icon-font-awesome-3.2.1",
+        "licenseInfo": "Apache Software License",
+        "url": "https://www.dataiku.com/product/plugins/your-plugin-id/",
+        "tags": [
+            "sqlserver"
+        ],
+        "supportLevel": "NOT_SUPPORTED"
+    }
+}

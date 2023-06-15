@@ -2,9 +2,9 @@
     "id": "your-plugin-id",
     "version": "0.1.0",
     "meta": {
-        "label": "Plugin template - Replace by your plugin label",
+        "label": "Bulk copy SQL server ",
       
-        "description": "supports the transfer of large amounts of data into or out of a SQL Server table",
+        "description": "It supports the transfer of large amounts of data into or out of a SQL Server table",
         "author": "Cristina Mulas",
         "icon": "icon-font-awesome-3.2.1",
         "licenseInfo": "Apache Software License",

@@ -54,12 +54,12 @@
             "name": "file_dataset",
             "label": "Create a new dataset",
             "type": "STRING",
-            "description": "Create a new dataset",
+            "description": "Create a new intermediate dataset",
             "mandatory": true
         },
         {
             "name": "sql_connection",
-            "label": "Type of connections ",
+            "label": "Type of connections",
             "type": "STRING",
             "description": "Select type of connection",
             "mandatory": true

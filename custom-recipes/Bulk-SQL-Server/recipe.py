@@ -4,12 +4,8 @@
 from dataiku.customrecipe import get_input_names_for_role
 from dataiku.customrecipe import get_output_names_for_role
 from dataiku.customrecipe import get_recipe_config
-import pandas as pd, numpy as np
-from dataiku import pandasutils as pdu
 import dataiku
 import pandas as pd, numpy as np
-from dataiku import pandasutils as pdu
-from dataiku import pandasutils as pdu
 import bcpy
 import os
 import pyodbc

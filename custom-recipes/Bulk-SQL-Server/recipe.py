@@ -10,7 +10,7 @@ import bcpy
 import os
 import pyodbc
 import re
-#adding
+
 
 # To  retrieve the folder of an input role 
 input_folder_name = get_input_names_for_role('folder_name')[0]
@@ -20,7 +20,7 @@ input_folder = dataiku.Folder(input_folder_name) # create a folder object
 # user parameters
 name_file = get_recipe_config()['file_name'] # file name test_5.csv
 connection = get_recipe_config()['sql_connection'] # sql connection gcp-ms-sql
-dataset_file = get_recipe_config()['file_dataset'] # name of the dataset
+dataset_file = get_recipe_config()['file_dataset'] # name of the dataset that needs to be created to get the schema from
 
 # get the file path
 input_folder_path = dataiku.Folder(input_folder_name).get_path()
@@ -36,7 +36,7 @@ with open(path_of_csv, "rb") as f:
 settings = dataset_input.autodetect_settings()
 settings.save()
 
-        
+# creating a list of columns names        
 input_dataset_schema = dataset_input.get_schema()
 list_of_columns_names_input = [i['name'] for i in input_dataset_schema['columns']]
 
@@ -54,13 +54,13 @@ sql_config =  {
 
 # For outputs, the process is the same:
 output_A_names = get_output_names_for_role('database_output')[0]
-output_A_names_fine = output_A_names.replace(".", "_")
+output_A_names_fine = output_A_names.replace(".", "_") # cleaning the name of the table
 sql_table_name = output_A_names_fine
 csv_file_path = path_of_csv
 flat_file = bcpy.FlatFile(qualifier='',columns = list_of_columns_names_input, path=csv_file_path)
 sql_table = bcpy.SqlTable(sql_config, table=sql_table_name)
 flat_file.to_sql(sql_table)
-getting_name_dataset = re.findall(r'\.\s*(\w+)', output_A_names)[0]
+getting_name_dataset = re.findall(r'\.\s*(\w+)', output_A_names)[0] # cleaning the name of the table
 
 dataset_out = project.get_dataset(getting_name_dataset)
-dataset_out.set_schema(input_dataset_schema)
+dataset_out.set_schema(input_dataset_schema) # setting th schema of the out dataset
